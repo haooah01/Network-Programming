@@ -1,0 +1,30 @@
+# Network capture files - NEVER commit these!
+*.pcap
+*.pcapng
+*.etl
+*.cap
+network_capture.*
+
+# Log files
+*.log
+
+# Temporary files
+*.tmp
+*.temp
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
