@@ -1,0 +1,15 @@
+D:\Documents-D\VS Code\network programming\buoi2\Csharp\HelloWorld\bin\Debug\net9.0\HelloWorld.exe
+D:\Documents-D\VS Code\network programming\buoi2\Csharp\HelloWorld\bin\Debug\net9.0\HelloWorld.deps.json
+D:\Documents-D\VS Code\network programming\buoi2\Csharp\HelloWorld\bin\Debug\net9.0\HelloWorld.runtimeconfig.json
+D:\Documents-D\VS Code\network programming\buoi2\Csharp\HelloWorld\bin\Debug\net9.0\HelloWorld.dll
+D:\Documents-D\VS Code\network programming\buoi2\Csharp\HelloWorld\bin\Debug\net9.0\HelloWorld.pdb
+D:\Documents-D\VS Code\network programming\buoi2\Csharp\HelloWorld\obj\Debug\net9.0\HelloWorld.GeneratedMSBuildEditorConfig.editorconfig
+D:\Documents-D\VS Code\network programming\buoi2\Csharp\HelloWorld\obj\Debug\net9.0\HelloWorld.AssemblyInfoInputs.cache
+D:\Documents-D\VS Code\network programming\buoi2\Csharp\HelloWorld\obj\Debug\net9.0\HelloWorld.AssemblyInfo.cs
+D:\Documents-D\VS Code\network programming\buoi2\Csharp\HelloWorld\obj\Debug\net9.0\HelloWorld.csproj.CoreCompileInputs.cache
+D:\Documents-D\VS Code\network programming\buoi2\Csharp\HelloWorld\obj\Debug\net9.0\HelloWorld.sourcelink.json
+D:\Documents-D\VS Code\network programming\buoi2\Csharp\HelloWorld\obj\Debug\net9.0\HelloWorld.dll
+D:\Documents-D\VS Code\network programming\buoi2\Csharp\HelloWorld\obj\Debug\net9.0\refint\HelloWorld.dll
+D:\Documents-D\VS Code\network programming\buoi2\Csharp\HelloWorld\obj\Debug\net9.0\HelloWorld.pdb
+D:\Documents-D\VS Code\network programming\buoi2\Csharp\HelloWorld\obj\Debug\net9.0\HelloWorld.genruntimeconfig.cache
+D:\Documents-D\VS Code\network programming\buoi2\Csharp\HelloWorld\obj\Debug\net9.0\ref\HelloWorld.dll

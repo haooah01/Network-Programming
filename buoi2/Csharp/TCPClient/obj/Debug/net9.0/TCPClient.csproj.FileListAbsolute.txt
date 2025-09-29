@@ -1,0 +1,15 @@
+D:\Documents-D\VS Code\network programming\buoi2\Csharp\TCPClient\bin\Debug\net9.0\TCPClient.exe
+D:\Documents-D\VS Code\network programming\buoi2\Csharp\TCPClient\bin\Debug\net9.0\TCPClient.deps.json
+D:\Documents-D\VS Code\network programming\buoi2\Csharp\TCPClient\bin\Debug\net9.0\TCPClient.runtimeconfig.json
+D:\Documents-D\VS Code\network programming\buoi2\Csharp\TCPClient\bin\Debug\net9.0\TCPClient.dll
+D:\Documents-D\VS Code\network programming\buoi2\Csharp\TCPClient\bin\Debug\net9.0\TCPClient.pdb
+D:\Documents-D\VS Code\network programming\buoi2\Csharp\TCPClient\obj\Debug\net9.0\TCPClient.GeneratedMSBuildEditorConfig.editorconfig
+D:\Documents-D\VS Code\network programming\buoi2\Csharp\TCPClient\obj\Debug\net9.0\TCPClient.AssemblyInfoInputs.cache
+D:\Documents-D\VS Code\network programming\buoi2\Csharp\TCPClient\obj\Debug\net9.0\TCPClient.AssemblyInfo.cs
+D:\Documents-D\VS Code\network programming\buoi2\Csharp\TCPClient\obj\Debug\net9.0\TCPClient.csproj.CoreCompileInputs.cache
+D:\Documents-D\VS Code\network programming\buoi2\Csharp\TCPClient\obj\Debug\net9.0\TCPClient.sourcelink.json
+D:\Documents-D\VS Code\network programming\buoi2\Csharp\TCPClient\obj\Debug\net9.0\TCPClient.dll
+D:\Documents-D\VS Code\network programming\buoi2\Csharp\TCPClient\obj\Debug\net9.0\refint\TCPClient.dll
+D:\Documents-D\VS Code\network programming\buoi2\Csharp\TCPClient\obj\Debug\net9.0\TCPClient.pdb
+D:\Documents-D\VS Code\network programming\buoi2\Csharp\TCPClient\obj\Debug\net9.0\TCPClient.genruntimeconfig.cache
+D:\Documents-D\VS Code\network programming\buoi2\Csharp\TCPClient\obj\Debug\net9.0\ref\TCPClient.dll
