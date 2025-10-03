@@ -19,7 +19,7 @@
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.2.0",
-    "vite": "^4.3.0",
+    "vite": "^7.1.9",
     "vitest": "^0.31.0",
     "cypress": "^12.14.0",
     "eslint": "^8.39.0",
