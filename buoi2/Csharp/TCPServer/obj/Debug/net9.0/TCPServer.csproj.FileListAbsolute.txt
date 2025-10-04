@@ -1,0 +1,15 @@
+D:\Documents-D\VS Code\network programming\buoi2\Csharp\TCPServer\bin\Debug\net9.0\TCPServer.exe
+D:\Documents-D\VS Code\network programming\buoi2\Csharp\TCPServer\bin\Debug\net9.0\TCPServer.deps.json
+D:\Documents-D\VS Code\network programming\buoi2\Csharp\TCPServer\bin\Debug\net9.0\TCPServer.runtimeconfig.json
+D:\Documents-D\VS Code\network programming\buoi2\Csharp\TCPServer\bin\Debug\net9.0\TCPServer.dll
+D:\Documents-D\VS Code\network programming\buoi2\Csharp\TCPServer\bin\Debug\net9.0\TCPServer.pdb
+D:\Documents-D\VS Code\network programming\buoi2\Csharp\TCPServer\obj\Debug\net9.0\TCPServer.GeneratedMSBuildEditorConfig.editorconfig
+D:\Documents-D\VS Code\network programming\buoi2\Csharp\TCPServer\obj\Debug\net9.0\TCPServer.AssemblyInfoInputs.cache
+D:\Documents-D\VS Code\network programming\buoi2\Csharp\TCPServer\obj\Debug\net9.0\TCPServer.AssemblyInfo.cs
+D:\Documents-D\VS Code\network programming\buoi2\Csharp\TCPServer\obj\Debug\net9.0\TCPServer.csproj.CoreCompileInputs.cache
+D:\Documents-D\VS Code\network programming\buoi2\Csharp\TCPServer\obj\Debug\net9.0\TCPServer.sourcelink.json
+D:\Documents-D\VS Code\network programming\buoi2\Csharp\TCPServer\obj\Debug\net9.0\TCPServer.dll
+D:\Documents-D\VS Code\network programming\buoi2\Csharp\TCPServer\obj\Debug\net9.0\refint\TCPServer.dll
+D:\Documents-D\VS Code\network programming\buoi2\Csharp\TCPServer\obj\Debug\net9.0\TCPServer.pdb
+D:\Documents-D\VS Code\network programming\buoi2\Csharp\TCPServer\obj\Debug\net9.0\TCPServer.genruntimeconfig.cache
+D:\Documents-D\VS Code\network programming\buoi2\Csharp\TCPServer\obj\Debug\net9.0\ref\TCPServer.dll

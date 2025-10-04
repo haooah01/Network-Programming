@@ -1,0 +1,15 @@
+D:\Documents-D\VS Code\network programming\buoi2\CSharpIntro\MiniNet\bin\Debug\net8.0\MiniNet.exe
+D:\Documents-D\VS Code\network programming\buoi2\CSharpIntro\MiniNet\bin\Debug\net8.0\MiniNet.deps.json
+D:\Documents-D\VS Code\network programming\buoi2\CSharpIntro\MiniNet\bin\Debug\net8.0\MiniNet.runtimeconfig.json
+D:\Documents-D\VS Code\network programming\buoi2\CSharpIntro\MiniNet\bin\Debug\net8.0\MiniNet.dll
+D:\Documents-D\VS Code\network programming\buoi2\CSharpIntro\MiniNet\bin\Debug\net8.0\MiniNet.pdb
+D:\Documents-D\VS Code\network programming\buoi2\CSharpIntro\MiniNet\obj\Debug\net8.0\MiniNet.GeneratedMSBuildEditorConfig.editorconfig
+D:\Documents-D\VS Code\network programming\buoi2\CSharpIntro\MiniNet\obj\Debug\net8.0\MiniNet.AssemblyInfoInputs.cache
+D:\Documents-D\VS Code\network programming\buoi2\CSharpIntro\MiniNet\obj\Debug\net8.0\MiniNet.AssemblyInfo.cs
+D:\Documents-D\VS Code\network programming\buoi2\CSharpIntro\MiniNet\obj\Debug\net8.0\MiniNet.csproj.CoreCompileInputs.cache
+D:\Documents-D\VS Code\network programming\buoi2\CSharpIntro\MiniNet\obj\Debug\net8.0\MiniNet.sourcelink.json
+D:\Documents-D\VS Code\network programming\buoi2\CSharpIntro\MiniNet\obj\Debug\net8.0\MiniNet.dll
+D:\Documents-D\VS Code\network programming\buoi2\CSharpIntro\MiniNet\obj\Debug\net8.0\refint\MiniNet.dll
+D:\Documents-D\VS Code\network programming\buoi2\CSharpIntro\MiniNet\obj\Debug\net8.0\MiniNet.pdb
+D:\Documents-D\VS Code\network programming\buoi2\CSharpIntro\MiniNet\obj\Debug\net8.0\MiniNet.genruntimeconfig.cache
+D:\Documents-D\VS Code\network programming\buoi2\CSharpIntro\MiniNet\obj\Debug\net8.0\ref\MiniNet.dll

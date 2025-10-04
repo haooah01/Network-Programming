@@ -1,0 +1,15 @@
+D:\Documents-D\VS Code\network programming\buoi2\CSharpIntro\HelloWorldApp\bin\Debug\net8.0\HelloWorldApp.exe
+D:\Documents-D\VS Code\network programming\buoi2\CSharpIntro\HelloWorldApp\bin\Debug\net8.0\HelloWorldApp.deps.json
+D:\Documents-D\VS Code\network programming\buoi2\CSharpIntro\HelloWorldApp\bin\Debug\net8.0\HelloWorldApp.runtimeconfig.json
+D:\Documents-D\VS Code\network programming\buoi2\CSharpIntro\HelloWorldApp\bin\Debug\net8.0\HelloWorldApp.dll
+D:\Documents-D\VS Code\network programming\buoi2\CSharpIntro\HelloWorldApp\bin\Debug\net8.0\HelloWorldApp.pdb
+D:\Documents-D\VS Code\network programming\buoi2\CSharpIntro\HelloWorldApp\obj\Debug\net8.0\HelloWorldApp.GeneratedMSBuildEditorConfig.editorconfig
+D:\Documents-D\VS Code\network programming\buoi2\CSharpIntro\HelloWorldApp\obj\Debug\net8.0\HelloWorldApp.AssemblyInfoInputs.cache
+D:\Documents-D\VS Code\network programming\buoi2\CSharpIntro\HelloWorldApp\obj\Debug\net8.0\HelloWorldApp.AssemblyInfo.cs
+D:\Documents-D\VS Code\network programming\buoi2\CSharpIntro\HelloWorldApp\obj\Debug\net8.0\HelloWorldApp.csproj.CoreCompileInputs.cache
+D:\Documents-D\VS Code\network programming\buoi2\CSharpIntro\HelloWorldApp\obj\Debug\net8.0\HelloWorldApp.sourcelink.json
+D:\Documents-D\VS Code\network programming\buoi2\CSharpIntro\HelloWorldApp\obj\Debug\net8.0\HelloWorldApp.dll
+D:\Documents-D\VS Code\network programming\buoi2\CSharpIntro\HelloWorldApp\obj\Debug\net8.0\refint\HelloWorldApp.dll
+D:\Documents-D\VS Code\network programming\buoi2\CSharpIntro\HelloWorldApp\obj\Debug\net8.0\HelloWorldApp.pdb
+D:\Documents-D\VS Code\network programming\buoi2\CSharpIntro\HelloWorldApp\obj\Debug\net8.0\HelloWorldApp.genruntimeconfig.cache
+D:\Documents-D\VS Code\network programming\buoi2\CSharpIntro\HelloWorldApp\obj\Debug\net8.0\ref\HelloWorldApp.dll
