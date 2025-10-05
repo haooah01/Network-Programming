@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>TCP Echo Web UI</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 16px; }
+    .col { display: inline-block; vertical-align: top; margin-right: 12px; }
+    textarea { width: 100%; height: 240px; }
+    .small { width: 120px; }
+  </style>
+</head>
+<body>
+  <h1>TCP Echo Web UI</h1>
+  <form method="post" action="/start_server">
+    <div class="col">
+      <label>Port: <input class="small" name="port" value="9093"></label>
+      <label>Mode: <select name="mode"><option value="line">line</option><option value="len">len</option></select></label>
+      <div><button type="submit">Start Server</button></div>
+    </div>
+  </form>
+  <form method="post" action="/stop_server">
+    <div class="col">
+      <label>Port: <input class="small" name="port" value="9093"></label>
+      <div><button type="submit">Stop Server</button></div>
+    </div>
+  </form>
+
+  <form method="post" action="/run_client">
+    <div style="margin-top:12px">
+      <label>Client Port: <input class="small" name="port" value="9093"></label>
+      <label>Mode: <select name="mode"><option value="line">line</option><option value="len">len</option></select></label>
+      <label>Text: <input name="text" value="Hello from web UI" size="40"></label>
+      <button type="submit">Run Client</button>
+    </div>
+  </form>
+
+  <form method="post" action="/run_invalid_utf8">
+    <input type="hidden" name="port" value="9093">
+    <button type="submit">Send Invalid UTF-8 (line)</button>
+  </form>
+
+  <form method="post" action="/run_length_tests">
+    <button type="submit">Run Length-Prefixed Tests</button>
+  </form>
+
+  <form method="post" action="/run_invalid_test_script">
+    <button type="submit">Run Invalid UTF-8 Test Script</button>
+  </form>
+
+  <h2>Log</h2>
+  <textarea readonly id="log">{{ log }}</textarea>
+  <script>
+    // periodic refresh of the log
+    setInterval(function(){
+      fetch('/status').then(r=>r.json()).then(j=>{
+        document.getElementById('log').value = j.log_tail.join('\n');
+      });
+    }, 1500);
+  </script>
+</body>
+</html>
