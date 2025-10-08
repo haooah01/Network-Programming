@@ -1,0 +1,17 @@
+{
+  "params": {
+    "idle": 30,
+    "intvl": 10,
+    "cnt": 5
+  },
+  "events": [
+    {
+      "t": "2025-10-05T17:05:54.872Z",
+      "type": "keepalive_configured"
+    },
+    {
+      "t": "...",
+      "type": "disconnect_detected"
+    }
+  ]
+}

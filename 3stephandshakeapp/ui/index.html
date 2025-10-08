@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>3-Step Handshake Demo Logs</title>
+  <style>
+    body { font-family: Arial, Helvetica, sans-serif; margin: 20px; }
+    #logs { white-space: pre-wrap; background:#f6f6f6; padding:10px; border:1px solid #ddd; height:400px; overflow:auto }
+  </style>
+</head>
+<body>
+  <h1>3-Step Handshake Demo Logs</h1>
+  <div id="status">Connecting to server UI...</div>
+  <div id="logs">(waiting for logs...)</div>
+
+  <script>
+    async function fetchLogs(base) {
+      try {
+        const r = await fetch(base + '/logs');
+        if (!r.ok) throw new Error('HTTP ' + r.status);
+        const arr = await r.json();
+        document.getElementById('logs').textContent = arr.join('\n');
+      } catch (e) {
+        document.getElementById('logs').textContent = 'Failed to fetch logs: ' + e;
+      }
+    }
+
+    async function init() {
+      // try a few ports for the UI
+      let base = null;
+      for (let p=5000;p<5010;p++){
+        try{
+          const r = await fetch('http://localhost:'+p+'/logs');
+          if (r.ok) { base = 'http://localhost:'+p; break; }
+        }catch(e){}
+      }
+      if (!base) {
+        document.getElementById('status').textContent = 'UI not found on localhost:5000-5009';
+        return;
+      }
+      document.getElementById('status').textContent = 'UI found at ' + base;
+      fetchLogs(base);
+      setInterval(()=>fetchLogs(base), 1500);
+    }
+    init();
+  </script>
+</body>
+</html>

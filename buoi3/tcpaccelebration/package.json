@@ -1,0 +1,46 @@
+{
+  "name": "tcp-latency-throughput-keepalive-lab",
+  "version": "1.0.0",
+  "description": "Comprehensive TCP networking lab: Nagle vs TCP_NODELAY, socket buffers vs throughput, TCP Keep-Alive monitoring",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "server": "node server_detailed.js",
+    "client": "node client_detailed.js",
+    "experiments": "node comprehensive_experiments.js",
+    "analyze": "node analyze_results.js",
+    "report": "python final_report.py",
+    "test-nagle": "node client.js --nodelay=false --n=50 --ms=10 --size=16",
+    "test-nodelay": "node client.js --nodelay=true --n=50 --ms=10 --size=16", 
+    "test-buffers": "python buffers_detailed.py --mb=32",
+    "test-keepalive": "python keepalive_detailed.py"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yourusername/tcp-latency-throughput-keepalive-lab.git"
+  },
+  "keywords": [
+    "tcp",
+    "networking",
+    "nagle",
+    "tcp_nodelay",
+    "socket",
+    "buffers",
+    "keepalive",
+    "latency",
+    "throughput",
+    "performance",
+    "networking-lab",
+    "socket-programming",
+    "network-engineering"
+  ],
+  "author": "Network Programming Lab",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "homepage": "https://github.com/yourusername/tcp-latency-throughput-keepalive-lab#readme",
+  "bugs": {
+    "url": "https://github.com/yourusername/tcp-latency-throughput-keepalive-lab/issues"
+  }
+}

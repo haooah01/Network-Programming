@@ -1,0 +1,11 @@
+{
+  "timestamp": "2025-10-05T17:33:29.800Z",
+  "environment": {
+    "platform": "win32",
+    "nodeVersion": "v22.16.0"
+  },
+  "results": {
+    "nagle_tests": [],
+    "buffer_tests": []
+  }
+}

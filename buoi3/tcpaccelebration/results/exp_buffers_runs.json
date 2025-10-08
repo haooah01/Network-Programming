@@ -1,0 +1,129 @@
+{
+  "runs": [
+    {
+      "sndbuf": 32768,
+      "rcvbuf": 32768,
+      "throughput_mbps": 5835.454610367788
+    },
+    {
+      "sndbuf": 32768,
+      "rcvbuf": 65536,
+      "throughput_mbps": 5713.476932349407
+    },
+    {
+      "sndbuf": 32768,
+      "rcvbuf": 131072,
+      "throughput_mbps": 5006.934205737803
+    },
+    {
+      "sndbuf": 32768,
+      "rcvbuf": 262144,
+      "throughput_mbps": 4924.884059596499
+    },
+    {
+      "sndbuf": 32768,
+      "rcvbuf": 524288,
+      "throughput_mbps": 3371.678324500105
+    },
+    {
+      "sndbuf": 65536,
+      "rcvbuf": 32768,
+      "throughput_mbps": 4140.220733989689
+    },
+    {
+      "sndbuf": 65536,
+      "rcvbuf": 65536,
+      "throughput_mbps": 4758.515692262864
+    },
+    {
+      "sndbuf": 65536,
+      "rcvbuf": 131072,
+      "throughput_mbps": 3686.8272844319995
+    },
+    {
+      "sndbuf": 65536,
+      "rcvbuf": 262144,
+      "throughput_mbps": 5834.335770184588
+    },
+    {
+      "sndbuf": 65536,
+      "rcvbuf": 524288,
+      "throughput_mbps": 4177.4010038809465
+    },
+    {
+      "sndbuf": 131072,
+      "rcvbuf": 32768,
+      "throughput_mbps": 5421.8462129124555
+    },
+    {
+      "sndbuf": 131072,
+      "rcvbuf": 65536,
+      "throughput_mbps": 6179.794812806507
+    },
+    {
+      "sndbuf": 131072,
+      "rcvbuf": 131072,
+      "throughput_mbps": 5546.243486673788
+    },
+    {
+      "sndbuf": 131072,
+      "rcvbuf": 262144,
+      "throughput_mbps": 5023.714875902426
+    },
+    {
+      "sndbuf": 131072,
+      "rcvbuf": 524288,
+      "throughput_mbps": 4238.422710488766
+    },
+    {
+      "sndbuf": 262144,
+      "rcvbuf": 32768,
+      "throughput_mbps": 5781.331759548256
+    },
+    {
+      "sndbuf": 262144,
+      "rcvbuf": 65536,
+      "throughput_mbps": 5189.752355555564
+    },
+    {
+      "sndbuf": 262144,
+      "rcvbuf": 131072,
+      "throughput_mbps": 5191.565063298569
+    },
+    {
+      "sndbuf": 262144,
+      "rcvbuf": 262144,
+      "throughput_mbps": 5801.099688691933
+    },
+    {
+      "sndbuf": 262144,
+      "rcvbuf": 524288,
+      "throughput_mbps": 3833.121511877431
+    },
+    {
+      "sndbuf": 524288,
+      "rcvbuf": 32768,
+      "throughput_mbps": 5422.616545592734
+    },
+    {
+      "sndbuf": 524288,
+      "rcvbuf": 65536,
+      "throughput_mbps": 5892.789362949713
+    },
+    {
+      "sndbuf": 524288,
+      "rcvbuf": 131072,
+      "throughput_mbps": 5084.271763323829
+    },
+    {
+      "sndbuf": 524288,
+      "rcvbuf": 262144,
+      "throughput_mbps": 5969.919254927207
+    },
+    {
+      "sndbuf": 524288,
+      "rcvbuf": 524288,
+      "throughput_mbps": 3420.0480378505517
+    }
+  ]
+}

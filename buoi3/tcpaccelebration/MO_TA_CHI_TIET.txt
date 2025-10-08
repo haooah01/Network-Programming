@@ -1,0 +1,322 @@
+================================================================================
+                    BÀI LAB TCP: LATENCY, THROUGHPUT VÀ KEEP-ALIVE
+                         Tác giả: Network Programming Lab
+                         Ngày tạo: 05/10/2025
+================================================================================
+
+I. TỔNG QUAN BÀI LAB
+===================
+
+Bài lab này được thiết kế để nghiên cứu và đo lường các khía cạnh quan trọng 
+của giao thức TCP trong lập trình mạng:
+
+1. **Thuật toán Nagle vs TCP_NODELAY**: Tác động đến độ trễ (latency)
+2. **Kích thước Socket Buffer**: Tác động đến thông lượng (throughput)  
+3. **TCP Keep-Alive**: Phát hiện kết nối bị đứt (half-open connections)
+
+Mục tiêu học tập:
+- Hiểu rõ cơ chế hoạt động của thuật toán Nagle
+- Phân tích mối quan hệ giữa buffer size và hiệu suất mạng
+- Thực hành cấu hình và sử dụng TCP Keep-Alive
+- Thu thập và phân tích dữ liệu thực nghiệm
+
+II. YÊU CẦU HỆ THỐNG
+===================
+
+Phần mềm cần thiết:
+- Node.js >= 18.0.0
+- Python >= 3.10
+- Hệ điều hành: Windows/Linux/macOS
+
+Cổng mạng sử dụng:
+- Port 7000 (có thể thay đổi qua biến môi trường PORT)
+
+Kiến thức tiên quyết:
+- Lập trình JavaScript cơ bản
+- Lập trình Python cơ bản
+- Hiểu biết về TCP/IP và socket programming
+
+III. CẤU TRÚC DỰ ÁN
+==================
+
+CÁC FILE CHÍNH:
+├── server.js                  # TCP Echo Server
+├── client.js                  # Client kiểm tra độ trễ (Nagle test)
+├── buffers.py                 # Client kiểm tra thông lượng (Buffer test)
+├── keepalive_demo.py          # Demo cơ bản TCP Keep-Alive
+├── keepalive_interactive.py   # Demo tương tác Keep-Alive
+├── run_experiments.js         # Script chạy tất cả thí nghiệm
+├── analyze_results.js         # Phân tích kết quả
+├── summary.js                 # Báo cáo tổng kết
+├── package.json               # Cấu hình Node.js project
+├── README.md                  # Tài liệu tiếng Anh
+└── MO_TA_CHI_TIET.txt        # File này
+
+THƯ MỤC KẾT QUẢ:
+results/
+├── results.json              # Kết quả tổng hợp tất cả thí nghiệm
+├── exp_nagle_runs.json       # Dữ liệu thí nghiệm Nagle
+├── exp_nagle_rtts.csv        # Dữ liệu RTT dạng CSV
+├── exp_buffers_runs.json     # Dữ liệu thí nghiệm Buffer
+├── exp_buffers_summary.csv   # Tóm tắt throughput dạng CSV
+└── exp_keepalive_events.json # Dữ liệu Keep-Alive events
+
+IV. CHI TIẾT CÁC THÍ NGHIỆM
+==========================
+
+A. THÍ NGHIỆM 1: THUẬT TOÁN NAGLE vs TCP_NODELAY
+-----------------------------------------------
+
+Mục đích:
+Đo lường tác động của thuật toán Nagle đến độ trễ của các gói tin nhỏ.
+
+Thuật toán Nagle:
+- Được thiết kế để giảm số lượng gói tin nhỏ trên mạng
+- Trì hoãn việc gửi dữ liệu cho đến khi có đủ dữ liệu hoặc ACK được nhận
+- Có thể gây tăng độ trễ cho các ứng dụng real-time
+
+TCP_NODELAY:
+- Vô hiệu hóa thuật toán Nagle
+- Gửi dữ liệu ngay lập tức
+- Phù hợp cho các ứng dụng yêu cầu độ trễ thấp
+
+Cấu hình thí nghiệm:
+- Số lần đo: 200 lần
+- Kích thước gói tin: 16 bytes
+- Khoảng cách giữa các lần gửi: 10ms
+- Host: 127.0.0.1 (localhost)
+- Port: 7000
+
+Kết quả thu được:
+- RTT trung bình với Nagle: 0.491ms
+- RTT trung bình với TCP_NODELAY: 0.492ms
+- Không có sự khác biệt đáng kể trong môi trường localhost
+
+Kết luận:
+Trong môi trường localhost với bandwidth cao, tác động của Nagle không rõ ràng.
+Để thấy được sự khác biệt, cần kiểm tra trên mạng có độ trễ cao hơn.
+
+B. THÍ NGHIỆM 2: KÍCH THƯỚC SOCKET BUFFER vs THROUGHPUT  
+-------------------------------------------------------
+
+Mục đích:
+Phân tích mối quan hệ giữa kích thước buffer socket và thông lượng mạng.
+
+Các tham số buffer kiểm tra:
+- SO_SNDBUF (Send Buffer): 32KB, 65KB, 131KB, 262KB, 512KB
+- SO_RCVBUF (Receive Buffer): 32KB, 65KB, 131KB, 262KB, 512KB
+- Tổng cộng: 25 cấu hình khác nhau
+
+Cấu hình thí nghiệm:
+- Kích thước dữ liệu gửi: 256MB
+- Kích thước chunk: 64KB
+- Protocol: TCP
+- Đo lường: Thông lượng (Mbps)
+
+Kết quả quan trọng:
+- Cấu hình tốt nhất: Send Buffer 131KB + Receive Buffer 65KB = 6,180 Mbps
+- Thông lượng trung bình theo Send Buffer:
+  * 32KB:  4,970 Mbps
+  * 65KB:  4,519 Mbps  
+  * 131KB: 5,282 Mbps
+  * 262KB: 5,159 Mbps
+  * 512KB: 5,158 Mbps
+
+Kết luận:
+- Buffer lớn hơn không luôn có nghĩa là hiệu suất tốt hơn
+- Tồn tại một điểm tối ưu cho mỗi môi trường mạng
+- Hệ thống có giới hạn về khả năng xử lý buffer lớn
+
+C. THÍ NGHIỆM 3: TCP KEEP-ALIVE
+------------------------------
+
+Mục đích:
+Thực hành cấu hình và sử dụng TCP Keep-Alive để phát hiện kết nối bị đứt.
+
+Cơ chế hoạt động:
+1. Kết nối idle trong một khoảng thời gian (TCP_KEEPIDLE)
+2. Gửi probe packets với khoảng cách đều đặn (TCP_KEEPINTVL)  
+3. Nếu không nhận được phản hồi sau số lần cố định (TCP_KEEPCNT), đóng kết nối
+
+Cấu hình demo:
+- TCP_KEEPIDLE: 30 giây (demo rút xuống 10 giây)
+- TCP_KEEPINTVL: 10 giây (demo rút xuống 3 giây)
+- TCP_KEEPCNT: 5 lần (demo rút xuống 3 lần)
+- Thời gian phát hiện tối đa: ~80 giây (demo: ~19 giây)
+
+Tình huống kiểm tra:
+- Kết nối bình thường với heartbeat
+- Server bị kill đột ngột
+- Mạng bị ngắt kết nối
+- Client tự động phát hiện và báo cáo
+
+Ứng dụng thực tế:
+- Database connections
+- Game servers
+- Chat applications
+- IoT device monitoring
+
+V. HƯỚNG DẪN SỬ DỤNG
+===================
+
+A. CHẠY TẤT CẢ THÍ NGHIỆM TỰ ĐỘNG:
+----------------------------------
+node run_experiments.js
+
+B. CHẠY TỪNG THÍ NGHIỆM RIÊNG BIỆT:
+---------------------------------
+
+1. Khởi động server:
+   node server.js
+
+2. Kiểm tra Nagle (terminal khác):
+   # Với Nagle enabled
+   node client.js --nodelay=false --n=200 --ms=10 --size=16
+   
+   # Với TCP_NODELAY
+   node client.js --nodelay=true --n=200 --ms=10 --size=16
+
+3. Kiểm tra Buffer (cần server chạy):
+   python buffers.py --sndbuf=65536 --rcvbuf=65536 --mb=256
+
+4. Demo Keep-Alive (cần server chạy):
+   python keepalive_interactive.py 127.0.0.1 7000
+   # Sau đó kill server để xem phát hiện ngắt kết nối
+
+C. PHÂN TÍCH KẾT QUẢ:
+--------------------
+node analyze_results.js    # Phân tích chi tiết
+node summary.js            # Báo cáo tổng kết
+
+D. CÁC LỆNH NPM HỖ TRỢ:
+----------------------
+npm run server          # Khởi động server
+npm run experiments     # Chạy tất cả thí nghiệm  
+npm run analyze         # Phân tích kết quả
+npm run test-keepalive  # Demo Keep-Alive
+
+VI. PHÂN TÍCH KẾT QUẢ
+====================
+
+A. DỮ LIỆU THU THẬP:
+-------------------
+
+1. Thí nghiệm Nagle:
+   - 400 mẫu RTT (200 cho mỗi cấu hình)
+   - Định dạng JSON và CSV
+   - Thống kê: min, max, average, standard deviation
+
+2. Thí nghiệm Buffer:
+   - 25 cấu hình buffer khác nhau
+   - Throughput tính bằng Mbps
+   - Dữ liệu dạng bảng dễ phân tích
+
+3. Thí nghiệm Keep-Alive:
+   - Events theo thời gian thực
+   - JSON format với timestamp
+   - Phù hợp cho monitoring systems
+
+B. CÔNG CỤ PHÂN TÍCH:
+--------------------
+
+Script analyze_results.js cung cấp:
+- Tính toán thống kê cơ bản
+- So sánh hiệu suất giữa các cấu hình
+- Xác định cấu hình tối ưu
+- Insights và recommendations
+
+C. VISUALIATION IDEAS:
+---------------------
+
+1. Line chart: RTT theo thời gian cho mỗi cấu hình Nagle
+2. Heatmap: Throughput theo Send Buffer vs Receive Buffer  
+3. Bar chart: So sánh throughput trung bình theo buffer size
+4. Timeline: Keep-Alive events và phát hiện disconnect
+
+VII. KẾT LUẬN VÀ INSIGHTS
+========================
+
+A. VỀ THUẬT TOÁN NAGLE:
+----------------------
+- Ít tác động trong môi trường localhost
+- Quan trọng hơn trên mạng WAN với độ trễ cao
+- Cần cân nhắc giữa latency và network efficiency
+- Ứng dụng real-time nên sử dụng TCP_NODELAY
+
+B. VỀ SOCKET BUFFERS:
+--------------------
+- Quan hệ không tuyến tính giữa buffer size và throughput
+- Cần tuning dựa trên đặc điểm workload cụ thể
+- Hệ thống có giới hạn về khả năng xử lý
+- Memory vs Performance trade-off
+
+C. VỀ TCP KEEP-ALIVE:
+--------------------
+- Công cụ quan trọng cho connection monitoring
+- Cấu hình phù hợp với yêu cầu ứng dụng
+- Cân bằng giữa detection time và network overhead
+- Essential cho production environments
+
+VIII. HƯỚNG PHÁT TRIỂN
+=====================
+
+A. MỞ RỘNG THÍ NGHIỆM:
+---------------------
+- Kiểm tra trên mạng WAN thực tế
+- Thêm các kích thước payload khác nhau
+- So sánh với UDP và các protocols khác
+- Load testing với multiple connections
+
+B. CẢI TIẾN CÔNG CỤ:
+------------------
+- Web dashboard cho visualization
+- Real-time monitoring
+- Automated report generation
+- Integration với monitoring systems
+
+C. ỨNG DỤNG THỰC TẾ:
+------------------
+- Performance tuning cho applications
+- Network troubleshooting
+- Capacity planning
+- SLA monitoring
+
+IX. TÀI LIỆU THAM KHẢO
+=====================
+
+1. RFC 896 - Nagle Algorithm
+2. RFC 1122 - Requirements for Internet Hosts
+3. TCP/IP Illustrated by Richard Stevens
+4. High Performance Browser Networking by Ilya Grigorik
+5. Linux Socket Programming documentation
+6. Node.js Net module documentation
+7. Python Socket library documentation
+
+X. HỖ TRỢ VÀ TROUBLESHOOTING
+============================
+
+A. CÁC LỖI THƯỜNG GẶP:
+---------------------
+
+1. "EADDRINUSE: address already in use"
+   Giải pháp: Kill process đang sử dụng port 7000
+   
+2. "Permission denied" trên Linux
+   Giải pháp: Chạy với sudo hoặc dùng port > 1024
+   
+3. "Module not found" 
+   Giải pháp: Chạy npm install nếu cần dependencies
+
+4. Python "ImportError"
+   Giải pháp: Kiểm tra Python version >= 3.10
+
+B. TIPS OPTIMIZATION:
+--------------------
+- Chạy trên SSD để giảm I/O latency
+- Tắt antivirus tạm thời khi chạy tests
+- Monitor system resources (CPU, Memory, Network)
+- Chạy multiple runs để có kết quả chính xác hơn
+
+================================================================================
+                               END OF DOCUMENT
+================================================================================
