@@ -221,6 +221,9 @@ ClientBin/
 *.dbproj.schemaview
 *.jfm
 *.pfx
+# Certificate exports should never be committed
+*.cer
+*.crt
 *.publishsettings
 orleans.codegen.cs
 
