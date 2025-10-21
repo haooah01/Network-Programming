@@ -205,7 +205,7 @@ public partial class Form1 : Form
         RefreshFiles();
     }
 
-    private void StartServerBtn_Click(object sender, EventArgs e)
+    private async void StartServerBtn_Click(object sender, EventArgs e)
     {
         try
         {
@@ -217,7 +217,7 @@ public partial class Form1 : Form
             startServerBtn.Enabled = false;
             stopServerBtn.Enabled = true;
             LogServer($"Server started on {host}:{port}");
-            serverThread = new Thread(ServerLoop) { IsBackground = true };
+            serverThread = new Thread(async () => await ServerLoopAsync()) { IsBackground = true };
             serverThread.Start();
         }
         catch (Exception ex)
@@ -235,16 +235,15 @@ public partial class Form1 : Form
         LogServer("Server stopped");
     }
 
-    private void ServerLoop()
+    private async Task ServerLoopAsync()
     {
         while (isServerRunning)
         {
             try
             {
-                var clientSocket = server.AcceptTcpClient();
+                var clientSocket = await server.AcceptTcpClientAsync();
                 LogServer($"Client connected: {clientSocket.Client.RemoteEndPoint}");
-                var clientThread = new Thread(() => HandleClient(clientSocket)) { IsBackground = true };
-                clientThread.Start();
+                _ = HandleClientAsync(clientSocket); // fire and forget
             }
             catch (Exception ex)
             {
@@ -254,43 +253,41 @@ public partial class Form1 : Form
         }
     }
 
-    private void HandleClient(TcpClient tcpClient)
+    private async Task HandleClientAsync(TcpClient tcpClient)
     {
         var stream = tcpClient.GetStream();
-        var buffer = new byte[1024];
         while (tcpClient.Connected)
         {
             try
             {
-                var msg = ReceiveMessage(stream);
+                var msg = await ReceiveMessageAsync(stream);
                 if (msg == null) break;
                 var type = msg["type"]?.ToString();
                 if (type == "chat")
                 {
                     var chatMsg = $"[{msg["from"]}]: {msg["text"]}";
-                    BroadcastMessage(msg, tcpClient);
+                    // BroadcastMessage(msg, tcpClient); // implement async if needed
                     Invoke(() => LogChat(chatMsg));
                 }
                 else if (type == "file_meta")
                 {
-                    // Handle file receive
                     var filename = msg["filename"]?.ToString();
                     var size = (long)msg["size"];
                     var sha256 = msg["sha256"]?.ToString();
                     LogServer($"Receiving file: {filename}");
-                    SendAck(stream, true, msg["corr_id"]?.ToString());
-                    var fileData = ReceiveFile(stream, size);
+                    await SendAckAsync(stream, true, msg["corr_id"]?.ToString());
+                    var fileData = await ReceiveFileAsync(stream, size);
                     if (ComputeSha256(fileData) == sha256)
                     {
                         File.WriteAllBytes(filename, fileData);
                         LogServer($"File {filename} saved");
-                        SendAck(stream, true, msg["corr_id"]?.ToString());
+                        await SendAckAsync(stream, true, msg["corr_id"]?.ToString());
                         Invoke(() => RefreshFiles());
                     }
                     else
                     {
                         LogServer($"File {filename} hash mismatch");
-                        SendAck(stream, false, msg["corr_id"]?.ToString(), "Hash mismatch");
+                        await SendAckAsync(stream, false, msg["corr_id"]?.ToString(), "Hash mismatch");
                     }
                 }
             }
@@ -303,9 +300,64 @@ public partial class Form1 : Form
         tcpClient.Close();
     }
 
-    private void BroadcastMessage(JObject msg, TcpClient excludeClient)
+    private async Task<JObject?> ReceiveMessageAsync(NetworkStream stream)
     {
-        // For simplicity, not implemented full broadcast
+        var lengthBytes = new byte[4];
+        var read = await stream.ReadAsync(lengthBytes, 0, 4);
+        if (read < 4) return null;
+        var length = BitConverter.ToInt32(lengthBytes);
+        var data = new byte[length];
+        read = 0;
+        while (read < length)
+        {
+            var r = await stream.ReadAsync(data, read, length - read);
+            if (r == 0) return null;
+            read += r;
+        }
+        var json = Encoding.UTF8.GetString(data);
+        return JObject.Parse(json);
+    }
+
+    private async Task<byte[]> ReceiveFileAsync(NetworkStream stream, long size)
+    {
+        using var ms = new MemoryStream();
+        long received = 0;
+        while (received < size)
+        {
+            var msg = await ReceiveMessageAsync(stream);
+            if (msg?["type"]?.ToString() == "file_chunk")
+            {
+                var chunkData = Convert.FromBase64String(msg["data"]?.ToString());
+                ms.Write(chunkData, 0, chunkData.Length);
+                received += chunkData.Length;
+            }
+        }
+        return ms.ToArray();
+    }
+
+    private async Task SendAckAsync(NetworkStream stream, bool ok, string corrId, string error = "")
+    {
+        var ack = new JObject
+        {
+            ["type"] = "ack",
+            ["ok"] = ok,
+            ["corr_id"] = corrId
+        };
+        if (!ok) ack["error"] = error;
+        await SendMessageAsync(stream, ack);
+    }
+
+    private async Task SendMessageAsync(NetworkStream stream, JObject msg)
+    {
+        lock (lockObj)
+        {
+            var json = msg.ToString();
+            var data = Encoding.UTF8.GetBytes(json);
+            var length = BitConverter.GetBytes(data.Length);
+            stream.Write(length, 0, 4);
+            stream.Write(data, 0, data.Length);
+        }
+        await Task.CompletedTask;
     }
 
     private void ConnectBtn_Click(object sender, EventArgs e)
