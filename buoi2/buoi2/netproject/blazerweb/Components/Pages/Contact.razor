@@ -1,0 +1,253 @@
+@page "/contact"
+
+<PageTitle>Contact - Senior Developer Portfolio</PageTitle>
+
+<div class="container py-5">
+    <div class="row">
+        <div class="col-12">
+            <h1 class="display-4 text-center mb-5">Let's Connect</h1>
+            <p class="lead text-center mb-5">Ready to discuss your next project or explore collaboration opportunities</p>
+        </div>
+    </div>
+
+    <div class="row">
+        <!-- Contact Information -->
+        <div class="col-lg-6 mb-5">
+            <div class="contact-info">
+                <h3 class="mb-4">Get In Touch</h3>
+                <p class="lead mb-4">
+                    I'm always interested in discussing new opportunities, 
+                    whether it's leading a development team, architecting enterprise solutions, 
+                    or mentoring the next generation of developers.
+                </p>
+                
+                <div class="contact-item mb-4">
+                    <div class="d-flex align-items-center">
+                        <div class="contact-icon bg-primary text-white me-3">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h6 class="mb-1">Email</h6>
+                            <p class="mb-0 text-muted">john.smith@example.com</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-item mb-4">
+                    <div class="d-flex align-items-center">
+                        <div class="contact-icon bg-success text-white me-3">
+                            <i class="fab fa-linkedin"></i>
+                        </div>
+                        <div>
+                            <h6 class="mb-1">LinkedIn</h6>
+                            <p class="mb-0 text-muted">linkedin.com/in/johnsmith-dev</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-item mb-4">
+                    <div class="d-flex align-items-center">
+                        <div class="contact-icon bg-dark text-white me-3">
+                            <i class="fab fa-github"></i>
+                        </div>
+                        <div>
+                            <h6 class="mb-1">GitHub</h6>
+                            <p class="mb-0 text-muted">github.com/johnsmith-dev</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-item mb-4">
+                    <div class="d-flex align-items-center">
+                        <div class="contact-icon bg-warning text-dark me-3">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <h6 class="mb-1">Location</h6>
+                            <p class="mb-0 text-muted">San Francisco Bay Area, CA</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-item mb-4">
+                    <div class="d-flex align-items-center">
+                        <div class="contact-icon bg-info text-white me-3">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div>
+                            <h6 class="mb-1">Availability</h6>
+                            <p class="mb-0 text-muted">Available for new opportunities</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Contact Form -->
+        <div class="col-lg-6">
+            <div class="contact-form-card">
+                <h3 class="mb-4">Send a Message</h3>
+                <form @onsubmit="HandleSubmit" @onsubmit:preventDefault="true">
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Name *</label>
+                        <input type="text" class="form-control" id="name" @bind="ContactForm.Name" required>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email *</label>
+                        <input type="email" class="form-control" id="email" @bind="ContactForm.Email" required>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="company" class="form-label">Company</label>
+                        <input type="text" class="form-control" id="company" @bind="ContactForm.Company">
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="subject" class="form-label">Subject *</label>
+                        <select class="form-select" id="subject" @bind="ContactForm.Subject" required>
+                            <option value="">Select a subject</option>
+                            <option value="job-opportunity">Job Opportunity</option>
+                            <option value="consulting">Consulting Project</option>
+                            <option value="collaboration">Collaboration</option>
+                            <option value="mentoring">Mentoring</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="message" class="form-label">Message *</label>
+                        <textarea class="form-control" id="message" rows="5" @bind="ContactForm.Message" required></textarea>
+                    </div>
+                    
+                    @if (IsSubmitted)
+                    {
+                        <div class="alert alert-success" role="alert">
+                            <i class="fas fa-check-circle me-2"></i>
+                            Thank you for your message! I'll get back to you within 24 hours.
+                        </div>
+                    }
+                    
+                    <button type="submit" class="btn btn-primary btn-lg w-100" disabled="@IsSubmitting">
+                        @if (IsSubmitting)
+                        {
+                            <span class="spinner-border spinner-border-sm me-2" role="status"></span>
+                            <span>Sending...</span>
+                        }
+                        else
+                        {
+                            <i class="fas fa-paper-plane me-2"></i>
+                            <span>Send Message</span>
+                        }
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Call to Action -->
+    <div class="row mt-5">
+        <div class="col-12">
+            <div class="cta-section text-center">
+                <h3 class="mb-3">Ready to Build Something Amazing?</h3>
+                <p class="lead mb-4">
+                    Let's discuss how my 10+ years of experience can help drive your next project to success.
+                </p>
+                <div class="d-flex justify-content-center gap-3">
+                    <a href="/projects" class="btn btn-outline-primary btn-lg">View My Work</a>
+                    <a href="/skills" class="btn btn-outline-secondary btn-lg">Technical Skills</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    private ContactFormModel ContactForm = new();
+    private bool IsSubmitting = false;
+    private bool IsSubmitted = false;
+
+    private async Task HandleSubmit()
+    {
+        IsSubmitting = true;
+        
+        // Simulate form submission
+        await Task.Delay(2000);
+        
+        IsSubmitting = false;
+        IsSubmitted = true;
+        
+        // Reset form after 5 seconds
+        await Task.Delay(5000);
+        ContactForm = new();
+        IsSubmitted = false;
+    }
+
+    public class ContactFormModel
+    {
+        public string Name { get; set; } = string.Empty;
+        public string Email { get; set; } = string.Empty;
+        public string Company { get; set; } = string.Empty;
+        public string Subject { get; set; } = string.Empty;
+        public string Message { get; set; } = string.Empty;
+    }
+}
+
+<style>
+    .contact-info {
+        background: white;
+        padding: 2rem;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        height: 100%;
+    }
+    
+    .contact-form-card {
+        background: white;
+        padding: 2rem;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        height: 100%;
+    }
+    
+    .contact-icon {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.2rem;
+    }
+    
+    .contact-item {
+        transition: transform 0.3s ease;
+    }
+    
+    .contact-item:hover {
+        transform: translateX(10px);
+    }
+    
+    .cta-section {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        padding: 3rem;
+        border-radius: 15px;
+        margin-top: 3rem;
+    }
+    
+    .form-control:focus, .form-select:focus {
+        border-color: #667eea;
+        box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
+    }
+    
+    .btn-primary {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        border: none;
+    }
+    
+    .btn-primary:hover {
+        background: linear-gradient(135deg, #5a6fd8 0%, #6a4190 100%);
+        transform: translateY(-2px);
+    }
+</style>
