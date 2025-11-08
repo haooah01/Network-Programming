@@ -1,0 +1,175 @@
+{
+  "host": "127.0.0.1",
+  "port": 7000,
+  "trials": 18,
+  "original_best": null,
+  "original_results": [
+    {"error": "connection_refused", "host": "127.0.0.1", "port": 7000},
+    {"error": "connection_refused", "host": "127.0.0.1", "port": 7000},
+    {"error": "connection_refused", "host": "127.0.0.1", "port": 7000},
+    {"error": "connection_refused", "host": "127.0.0.1", "port": 7000},
+    {"error": "connection_refused", "host": "127.0.0.1", "port": 7000},
+    {"error": "connection_refused", "host": "127.0.0.1", "port": 7000},
+    {"error": "connection_refused", "host": "127.0.0.1", "port": 7000},
+    {"error": "connection_refused", "host": "127.0.0.1", "port": 7000},
+    {"error": "connection_refused", "host": "127.0.0.1", "port": 7000},
+    {"error": "connection_refused", "host": "127.0.0.1", "port": 7000},
+    {"error": "connection_refused", "host": "127.0.0.1", "port": 7000},
+    {"error": "connection_refused", "host": "127.0.0.1", "port": 7000},
+    {"error": "connection_refused", "host": "127.0.0.1", "port": 7000},
+    {"error": "connection_refused", "host": "127.0.0.1", "port": 7000},
+    {"error": "connection_refused", "host": "127.0.0.1", "port": 7000},
+    {"error": "connection_refused", "host": "127.0.0.1", "port": 7000},
+    {"error": "connection_refused", "host": "127.0.0.1", "port": 7000},
+    {"error": "connection_refused", "host": "127.0.0.1", "port": 7000}
+  ],
+  "annotation_generated_at": 1762317387.0,
+  "run_command": "python \"d:\\\\Documents-D\\\\VS Code\\\\network programming\\\\tcp optimizer\\\\tcp_optimizer.py\" --host 127.0.0.1 --port 7000 --duration 5 --sndbufs 16384,32768,65536 --rcvbufs 16384,32768,65536 --test-nodelay --out \"d:\\\\Documents-D\\\\VS Code\\\\network programming\\\\tcp optimizer\\\\my_results.json\"",
+  "notes": "Tất cả trial trả về 'connection_refused' — nghĩa là không có server lắng nghe trên 127.0.0.1:7000 tại thời điểm chạy (hoặc kết nối bị chặn). Kiểm tra xem server đã start chưa hoặc chạy helper 'run_with_local_server.py' để khởi động sink server rồi chạy lại optimizer.",
+  "annotated_results": [
+    {
+      "trial_index": 1,
+      "sndbuf_requested": 16384,
+      "rcvbuf_requested": 16384,
+      "tcp_nodelay_requested": false,
+      "original": {"error": "connection_refused", "host": "127.0.0.1", "port": 7000},
+      "note": "Connection refused — no server listening on 127.0.0.1:7000 when trial started. (snd=16KB rcv=16KB nodelay=off)"
+    },
+    {
+      "trial_index": 2,
+      "sndbuf_requested": 16384,
+      "rcvbuf_requested": 16384,
+      "tcp_nodelay_requested": true,
+      "original": {"error": "connection_refused", "host": "127.0.0.1", "port": 7000},
+      "note": "Connection refused — no server listening. (snd=16KB rcv=16KB nodelay=on)"
+    },
+    {
+      "trial_index": 3,
+      "sndbuf_requested": 16384,
+      "rcvbuf_requested": 32768,
+      "tcp_nodelay_requested": false,
+      "original": {"error": "connection_refused", "host": "127.0.0.1", "port": 7000},
+      "note": "Connection refused — no server listening. (snd=16KB rcv=32KB nodelay=off)"
+    },
+    {
+      "trial_index": 4,
+      "sndbuf_requested": 16384,
+      "rcvbuf_requested": 32768,
+      "tcp_nodelay_requested": true,
+      "original": {"error": "connection_refused", "host": "127.0.0.1", "port": 7000},
+      "note": "Connection refused — no server listening. (snd=16KB rcv=32KB nodelay=on)"
+    },
+    {
+      "trial_index": 5,
+      "sndbuf_requested": 16384,
+      "rcvbuf_requested": 65536,
+      "tcp_nodelay_requested": false,
+      "original": {"error": "connection_refused", "host": "127.0.0.1", "port": 7000},
+      "note": "Connection refused — no server listening. (snd=16KB rcv=64KB nodelay=off)"
+    },
+    {
+      "trial_index": 6,
+      "sndbuf_requested": 16384,
+      "rcvbuf_requested": 65536,
+      "tcp_nodelay_requested": true,
+      "original": {"error": "connection_refused", "host": "127.0.0.1", "port": 7000},
+      "note": "Connection refused — no server listening. (snd=16KB rcv=64KB nodelay=on)"
+    },
+    {
+      "trial_index": 7,
+      "sndbuf_requested": 32768,
+      "rcvbuf_requested": 16384,
+      "tcp_nodelay_requested": false,
+      "original": {"error": "connection_refused", "host": "127.0.0.1", "port": 7000},
+      "note": "Connection refused — no server listening. (snd=32KB rcv=16KB nodelay=off)"
+    },
+    {
+      "trial_index": 8,
+      "sndbuf_requested": 32768,
+      "rcvbuf_requested": 16384,
+      "tcp_nodelay_requested": true,
+      "original": {"error": "connection_refused", "host": "127.0.0.1", "port": 7000},
+      "note": "Connection refused — no server listening. (snd=32KB rcv=16KB nodelay=on)"
+    },
+    {
+      "trial_index": 9,
+      "sndbuf_requested": 32768,
+      "rcvbuf_requested": 32768,
+      "tcp_nodelay_requested": false,
+      "original": {"error": "connection_refused", "host": "127.0.0.1", "port": 7000},
+      "note": "Connection refused — no server listening. (snd=32KB rcv=32KB nodelay=off)"
+    },
+    {
+      "trial_index": 10,
+      "sndbuf_requested": 32768,
+      "rcvbuf_requested": 32768,
+      "tcp_nodelay_requested": true,
+      "original": {"error": "connection_refused", "host": "127.0.0.1", "port": 7000},
+      "note": "Connection refused — no server listening. (snd=32KB rcv=32KB nodelay=on)"
+    },
+    {
+      "trial_index": 11,
+      "sndbuf_requested": 32768,
+      "rcvbuf_requested": 65536,
+      "tcp_nodelay_requested": false,
+      "original": {"error": "connection_refused", "host": "127.0.0.1", "port": 7000},
+      "note": "Connection refused — no server listening. (snd=32KB rcv=64KB nodelay=off)"
+    },
+    {
+      "trial_index": 12,
+      "sndbuf_requested": 32768,
+      "rcvbuf_requested": 65536,
+      "tcp_nodelay_requested": true,
+      "original": {"error": "connection_refused", "host": "127.0.0.1", "port": 7000},
+      "note": "Connection refused — no server listening. (snd=32KB rcv=64KB nodelay=on)"
+    },
+    {
+      "trial_index": 13,
+      "sndbuf_requested": 65536,
+      "rcvbuf_requested": 16384,
+      "tcp_nodelay_requested": false,
+      "original": {"error": "connection_refused", "host": "127.0.0.1", "port": 7000},
+      "note": "Connection refused — no server listening. (snd=64KB rcv=16KB nodelay=off)"
+    },
+    {
+      "trial_index": 14,
+      "sndbuf_requested": 65536,
+      "rcvbuf_requested": 16384,
+      "tcp_nodelay_requested": true,
+      "original": {"error": "connection_refused", "host": "127.0.0.1", "port": 7000},
+      "note": "Connection refused — no server listening. (snd=64KB rcv=16KB nodelay=on)"
+    },
+    {
+      "trial_index": 15,
+      "sndbuf_requested": 65536,
+      "rcvbuf_requested": 32768,
+      "tcp_nodelay_requested": false,
+      "original": {"error": "connection_refused", "host": "127.0.0.1", "port": 7000},
+      "note": "Connection refused — no server listening. (snd=64KB rcv=32KB nodelay=off)"
+    },
+    {
+      "trial_index": 16,
+      "sndbuf_requested": 65536,
+      "rcvbuf_requested": 32768,
+      "tcp_nodelay_requested": true,
+      "original": {"error": "connection_refused", "host": "127.0.0.1", "port": 7000},
+      "note": "Connection refused — no server listening. (snd=64KB rcv=32KB nodelay=on)"
+    },
+    {
+      "trial_index": 17,
+      "sndbuf_requested": 65536,
+      "rcvbuf_requested": 65536,
+      "tcp_nodelay_requested": false,
+      "original": {"error": "connection_refused", "host": "127.0.0.1", "port": 7000},
+      "note": "Connection refused — no server listening. (snd=64KB rcv=64KB nodelay=off)"
+    },
+    {
+      "trial_index": 18,
+      "sndbuf_requested": 65536,
+      "rcvbuf_requested": 65536,
+      "tcp_nodelay_requested": true,
+      "original": {"error": "connection_refused", "host": "127.0.0.1", "port": 7000},
+      "note": "Connection refused — no server listening. (snd=64KB rcv=64KB nodelay=on)"
+    }
+  ]
+}

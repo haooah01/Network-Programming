@@ -1,4 +1,0 @@
-# Requirements: Python 3.8+
-# Optional plotting dependencies used by the sweep script:
-matplotlib>=3.0
-

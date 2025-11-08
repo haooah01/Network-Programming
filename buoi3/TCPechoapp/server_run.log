@@ -1,0 +1,6 @@
+2025-10-05 18:55:44 INFO Server bound host=127.0.0.1 port=9093
+2025-10-05 18:55:45 INFO Connection closed remote=127.0.0.1:10619 duration_ms=14
+2025-10-05 18:55:53 DEBUG recv size=15 hex=58696e206368c3a06f20f09f98800a
+2025-10-05 18:55:53 DEBUG send size=15 hex=58696e206368c3a06f20f09f98800a
+2025-10-05 18:55:53 INFO Echoed line remote=127.0.0.1:10732 bytes=15
+2025-10-05 18:55:53 INFO Connection closed remote=127.0.0.1:10732 duration_ms=14

@@ -1,0 +1,15 @@
+[
+  {
+    "mode": "fec",
+    "loss": 0.05,
+    "delay_mean": 0.02,
+    "packets_requested": 50,
+    "sent_packets": 63,
+    "retransmissions": 0,
+    "delivered_packets": 50,
+    "fec_recoveries": 8,
+    "duration_sec": 0.32460570335388184,
+    "goodput_bytes": 9800,
+    "goodput_bytes_per_sec": 30190.473854108903
+  }
+]

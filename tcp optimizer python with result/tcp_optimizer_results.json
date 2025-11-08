@@ -1,0 +1,38 @@
+{
+  "host": "127.0.0.1",
+  "port": 7000,
+  "trials": 1,
+  "best": {
+    "host": "127.0.0.1",
+    "port": 7000,
+    "sndbuf_requested": 65536,
+    "rcvbuf_requested": 65536,
+    "tcp_nodelay_requested": "system_default",
+    "duration_target": 1.0,
+    "sndbuf_actual": 65536,
+    "rcvbuf_actual": 65536,
+    "tcp_nodelay_actual": false,
+    "bytes_sent": 1915158528,
+    "duration_seconds": 1.0148029327392578,
+    "throughput_mbps": 15097.776848794963,
+    "chunk_size": 65536
+  },
+  "results": [
+    {
+      "host": "127.0.0.1",
+      "port": 7000,
+      "sndbuf_requested": 65536,
+      "rcvbuf_requested": 65536,
+      "tcp_nodelay_requested": "system_default",
+      "duration_target": 1.0,
+      "sndbuf_actual": 65536,
+      "rcvbuf_actual": 65536,
+      "tcp_nodelay_actual": false,
+      "bytes_sent": 1915158528,
+      "duration_seconds": 1.0148029327392578,
+      "throughput_mbps": 15097.776848794963,
+      "chunk_size": 65536
+    }
+  ],
+  "generated_at": 1762317633.4505844
+}

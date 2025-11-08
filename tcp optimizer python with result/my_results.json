@@ -1,0 +1,99 @@
+{
+  "host": "127.0.0.1",
+  "port": 7000,
+  "trials": 18,
+  "best": null,
+  "results": [
+    {
+      "error": "connection_refused",
+      "host": "127.0.0.1",
+      "port": 7000
+    },
+    {
+      "error": "connection_refused",
+      "host": "127.0.0.1",
+      "port": 7000
+    },
+    {
+      "error": "connection_refused",
+      "host": "127.0.0.1",
+      "port": 7000
+    },
+    {
+      "error": "connection_refused",
+      "host": "127.0.0.1",
+      "port": 7000
+    },
+    {
+      "error": "connection_refused",
+      "host": "127.0.0.1",
+      "port": 7000
+    },
+    {
+      "error": "connection_refused",
+      "host": "127.0.0.1",
+      "port": 7000
+    },
+    {
+      "error": "connection_refused",
+      "host": "127.0.0.1",
+      "port": 7000
+    },
+    {
+      "error": "connection_refused",
+      "host": "127.0.0.1",
+      "port": 7000
+    },
+    {
+      "error": "connection_refused",
+      "host": "127.0.0.1",
+      "port": 7000
+    },
+    {
+      "error": "connection_refused",
+      "host": "127.0.0.1",
+      "port": 7000
+    },
+    {
+      "error": "connection_refused",
+      "host": "127.0.0.1",
+      "port": 7000
+    },
+    {
+      "error": "connection_refused",
+      "host": "127.0.0.1",
+      "port": 7000
+    },
+    {
+      "error": "connection_refused",
+      "host": "127.0.0.1",
+      "port": 7000
+    },
+    {
+      "error": "connection_refused",
+      "host": "127.0.0.1",
+      "port": 7000
+    },
+    {
+      "error": "connection_refused",
+      "host": "127.0.0.1",
+      "port": 7000
+    },
+    {
+      "error": "connection_refused",
+      "host": "127.0.0.1",
+      "port": 7000
+    },
+    {
+      "error": "connection_refused",
+      "host": "127.0.0.1",
+      "port": 7000
+    },
+    {
+      "error": "connection_refused",
+      "host": "127.0.0.1",
+      "port": 7000
+    }
+  ],
+  "generated_at": 1762317387.1666718
+}
